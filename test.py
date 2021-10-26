@@ -17,3 +17,8 @@ plt.scatter(bream_length, bream_weight)
 plt.scatter(smelt_length, smelt_weight)
 #plt.show()
 
+fish_length = np.concatenate((bream_length, smelt_length))
+fish_weight = np.concatenate((bream_weight, smelt_weight))
+
+fish_data = np.column_stack((fish_length, fish_weight))
+print(fish_data)
