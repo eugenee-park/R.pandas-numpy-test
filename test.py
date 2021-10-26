@@ -38,3 +38,28 @@ fish_target = fish_target[indexes]
 #print(fish_data)
 #print(fish_target)
 
+train_data = fish_data[:39]
+train_target = fish_target[:39]
+test_data = fish_data[39:]
+test_target = fish_target[39:]
+
+plt.scatter(train_data[:,0], train_data[:,1])
+#plt.show()
+
+## (1) train
+#print(train_target.shape)
+train_target = train_target.reshape(39, 1)
+#print(train_target.shape)
+#print(train_data.shape)
+train = np.hstack((train_data, train_target))
+#print(train)
+train_dataFrame = pd.DataFrame(train, columns=["train_length", "train_weight", "train_target"])
+#print(train_dataFrame)
+#print(train_data)
+#print(train_target)
+
+## (2) test
+test_target = test_target.reshape(10, 1)
+test = np.hstack((test_data, test_target))
+test_dataFrame = pd.DataFrame(test, columns=["test_length", "test_weight", "test_target"])
+#print(test_dataFrame)
